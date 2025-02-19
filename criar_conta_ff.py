@@ -18,7 +18,6 @@ def criar_conta():
         dataNascimentoString = input('Entre com a data de nascimento (dd/mm/aaaa): ')
         dataNascimento = datetime.strptime(dataNascimentoString, "%d/%m/%Y")
         senha = ler_valor_nao_vazio('senha')
-    print('saiu pra molecagem')
     conta = {
         'nickname': nickname,
         'email': email,
@@ -51,7 +50,9 @@ def menu():
         print("\nMenu:")
         print("1 - Adicionar nova conta")
         print("2 -  Exibir todas as contas")
-        print("3 - Sair")
+        print("3 - Excluir conta")
+        print("4 - Modificar conta")
+        print("5 - Sair")
 
         opcao = input("Escolha uma opção:")
 
@@ -59,11 +60,9 @@ def menu():
             criar_conta()
         elif opcao == '2':
             imprimir_todos()
-        elif opcao == '3':
+        elif opcao == '5':
             print("Saindo...")
             break
         else:
             print("Opção inválida. Tente novamente.\n")
 menu()
-minha_conta = criar_conta()
-imprimir_conta(minha_conta)
