@@ -5,20 +5,20 @@ registros = []
 def ler_valor_nao_vazio(nome_variavel):
     valor_lido = ''
     while valor_lido.strip() == '':
-        valor_lido = input(f'Entre com o valor para o(a) {nome_variavel} da conta: ')
-    if valor_lido == '':
         print(f"o valor para {nome_variavel} não pode ser vazio!")
+        valor_lido = input(f'Entre com o valor para o(a) {nome_variavel} da conta: ')
+
     return valor_lido
 
 def criar_conta():
-    for x in range(3):
-        pass
+    execs=int(input('Quantos cadastros você irá fazer?:'))
+    for i in range(execs):
         nickname = ler_valor_nao_vazio('nickname')
         email = ler_valor_nao_vazio('email')
         dataNascimentoString = input('Entre com a data de nascimento (dd/mm/aaaa): ')
         dataNascimento = datetime.strptime(dataNascimentoString, "%d/%m/%Y")
         senha = ler_valor_nao_vazio('senha')
-
+    print('saiu pra molecagem')
     conta = {
         'nickname': nickname,
         'email': email,
@@ -44,10 +44,6 @@ def imprimir_todos():
         print("\n===== Lista de Contas =====")
         for conta in registros:
             imprimir_conta(conta)
-
-def excluir_conta():
-    print(registros)
-    excluir = input('escolha a conta que deseja excluir')
 
 def menu():
     while True:
